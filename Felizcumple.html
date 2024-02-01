@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feliz cumpleaños</title>
+    <style>
+        body {
+            background-color: #ffcccc;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff0000;
+            font-size: 50px;
+        }
+        p {
+            font-size: 30px;
+        }
+        form {
+            margin-top: 50px;
+        }
+        input[type="number"] {
+            width: 50px;
+            font-size: 30px;
+        }
+        .decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            animation: changeColor 5s linear infinite;
+        }
+        .celebration-message {
+            font-size: 40px;
+            margin-top: 20px;
+        }
+        @keyframes changeColor {
+            0% { background-color: red; }
+            25% { background-color: blue; }
+            50% { background-color: green; }
+            75% { background-color: yellow; }
+            100% { background-color: red; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Feliz cumpleaños</h1>
+    <h1>Jos</h1>
+    <p>Introduce tu edad ¡¡CORRELEEEEEEEEE!! 😠😠😠😠😠😠:</p>
+    <form>
+        <input type="number" id="age" min="1" max="100">
+        <button type="button" onclick="wishHappyBirthday()">Enviar</button>
+    </form>
+    <div id="celebration" class="celebration-message"></div>
+    <div class="decoration" style="left: 10px; top: 10px;"></div>
+    <div class="decoration" style="left: 50px; top: 50px;"></div>
+    <div class="decoration" style="left: 100px; top: 10px;"></div>
+    <div class="decoration" style="left: 10px; top: 100px;"></div>
+    <div class="decoration" style="left: 150px; top: 50px;"></div>
+    
+    <script>
+        
+        
+        function wishHappyBirthday() {
+            var age = document.getElementById("age").value;
+            var celebrationDiv = document.getElementById("celebration");
+            var imageDiv = document.getElementById("birthdayImage");
+
+            if(age) {
+                celebrationDiv.innerHTML = "🎉🎊 Feliz cumpleaños, " + age + " putita, te quiere tu hermano Víctor ! 🎉🎊";
+                changeDecorationColors();
+            } else {
+                celebrationDiv.innerHTML = "Por favor, introduce tu edad hijo de tu puto padre. 🎈";
+            }
+        }
+
+        // Funciones existentes...
+
+
+
+        function changeDecorationColors() {
+            var decorations = document.getElementsByClassName('decoration');
+            for(var i = 0; i < decorations.length; i++) {
+                decorations[i].style.backgroundColor = getRandomColor();
+            }
+        }
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+</html>
+
+
